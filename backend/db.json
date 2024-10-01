@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": "7190",
+      "username": "Nosihle",
+      "password": "12345"
+    },
+    {
+      "id": "1221",
+      "username": "gggg",
+      "password": "12345"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "94b2",
+      "name": "Burger",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hamburger_patty.jpg/640px-Hamburger_patty.jpg",
+      "ingredients": [
+        "Mince",
+        "Egg",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": "Mix Everything together and frie",
+      "category": "Breakfast",
+      "preparationTime": "2min",
+      "cookingTime": "4min",
+      "servings": "1"
+    },
+    {
+      "id": "1a48",
+      "name": "Burger",
+      "image": "https://www.shutterstock.com/image-photo/burger-tomateoes-lettuce-pickles-on-600nw-2309539129.jpg",
+      "ingredients": [
+        "buns",
+        "patty",
+        "source",
+        "onions",
+        "pickles",
+        "tomatoes"
+      ],
+      "instructions": "Everything on top of another",
+      "category": "Lunch",
+      "preparationTime": "8",
+      "cookingTime": "15",
+      "servings": "1"
+    },
+    {
+      "id": "b711",
+      "name": "Burger",
+      "image": "https://images.ctfassets.net/0dkgxhks0leg/30QsCbbMsiCoVN2RXvWExm/86b4c3fe242cb0d6283a27070556fd90/burgers_20with_20avocado_171_20copy.jpg",
+      "ingredients": [
+        "jrstjh",
+        "45u45u",
+        "45uq4wu",
+        "u65qw4j",
+        "4uj4j",
+        "4w6j46j",
+        "rtsrtjr",
+        "aewhea",
+        "jkyuk",
+        "sdfh",
+        "tyjs4rk",
+        "rtjasrt",
+        "rtjrtj",
+        "a5turgj",
+        "srtjsjty",
+        "rtjsty",
+        "dtyklyu",
+        "srtasrj"
+      ],
+      "instructions": "srtrt wreo[ire aehbadkj aejbare aergi  eihihs rhh gdhh a'aroaehu aegguar aiebgru aeuguae aeuakrguh sugdehu erugab aerguidshuegh asurhg ergugua eruge uaeu aeu ehart thrawh trawrth trjr ghmdg ghd sfthj rtjns srtjrj tyk jdfjdjjdt dxjxf yj dyj etyjdt dstyj sy dt yssr syjrtj tjst trsjjsrj",
+      "category": "Dinner",
+      "preparationTime": "5",
+      "cookingTime": "4",
+      "servings": "1"
+    }
+  ]
+}
