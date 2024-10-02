@@ -1,73 +1,88 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const SignIn = () => {
+const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
     try {
       const response = await axios.get('http://localhost:3001/users');
       const users = response.data;
+
+      // Check if the entered credentials match any user
       const user = users.find(
         (user) => user.username === username && user.password === password
       );
 
       if (user) {
-        alert('Login successful!');
-        navigate('/AddRecipe');
+        // Login successful, navigate to the recipes page or another route
+        console.log('Login successful:', user);
+        navigate('/addRecipe');
       } else {
-        alert('Invalid credentials');
+        setError('Invalid username or password');
       }
-    } catch (error) {
-      console.error('Error fetching users:', error);
+    } catch (err) {
+      console.error('Error fetching users:', err);
+      setError('Error fetching users');
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
-      <div className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-2xl mb-6">Sign In</h2>
-        <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="border rounded w-full p-2"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="border rounded w-full p-2"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-green-500 text-white rounded w-full p-2"
-          >
-            Sign In
-          </button>
-        </form>
-        <p className="mt-4">
-          Don't have an account?{' '}
-          <a href="/register" className="text-blue-500">
-            Register here
-          </a>
-        </p>
-      </div>
+    <div style={styles.container}>
+      <h2>Login</h2>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
+        style={styles.input}
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+        style={styles.input}
+      />
+      <button onClick={handleLogin} style={styles.button}>Login</button>
+      {error && <p style={styles.error}>{error}</p>}
     </div>
   );
 };
 
-export default SignIn;
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    width: '300px',
+    margin: '0 auto',
+  },
+  input: {
+    margin: '10px 0',
+    padding: '10px',
+    width: '100%',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+  },
+  button: {
+    padding: '10px',
+    backgroundColor: '#28a745',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  },
+  error: {
+    color: 'red',
+  },
+};
+
+export default LoginPage;

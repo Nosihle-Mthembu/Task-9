@@ -19,7 +19,7 @@ const AddRecipePage = () => {
     const newRecipe = {
       name,
       image,
-      ingredients: ingredients.split(',').map(ing => ing.trim()), // Split ingredients into an array
+      ingredients: ingredients.split(',').map(ing => ing.trim()),
       instructions,
       category,
       preparationTime,
@@ -35,7 +35,7 @@ const AddRecipePage = () => {
       });
       if (response.ok) {
         alert('Recipe added successfully!');
-        navigate('/recipes'); // Redirect to the Recipes page
+        navigate('/recipes');
       } else {
         throw new Error('Failed to add recipe');
       }
