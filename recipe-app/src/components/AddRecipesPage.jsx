@@ -122,7 +122,6 @@ const AddRecipePage = () => {
         <button type="submit">Add Recipe</button>
       </form>
 
-
       <RecipePage />
     </div>
   );

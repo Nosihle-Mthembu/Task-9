@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleLogin = async () => {
     try {
       const response = await axios.get('http://localhost:3001/users');
       const users = response.data;
 
-      // Check if the entered credentials match any user
       const user = users.find(
         (user) => user.username === username && user.password === password
       );
 
       if (user) {
-        // Login successful, navigate to the recipes page or another route
         console.log('Login successful:', user);
         navigate('/addRecipe');
       } else {

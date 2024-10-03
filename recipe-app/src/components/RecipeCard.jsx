@@ -1,25 +1,40 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const RecipeCard = ({ recipe }) => {
-  const {
-    title = " ",
-    category = 'Unknown Category',
-    image = '',
-    servings = 'N/A',
-    prepTime = 'N/A',
-    cookTime = 'N/A',
-  } = recipe;
+const RecipeCard = () => {
+ 
+  const [recipes, setRecipes] = useState([]);
 
-  
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/recipes');
+        setRecipes(response.data);
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+        setError('Failed to load recipes. Please try again.');
+      }
+    };
+
+    fetchRecipes();
+  }, []);
+
   return (
-    <div style={styles.card}>
-        <img src={image} alt={title} style={styles.image} />
-        <h3 style={styles.title}>{title}</h3>
-        <p>Category: {category}</p>
-        <p>Servings: {servings}</p>
-        <p>Prep Time: {prepTime}</p>
-        <p>Cooking Time: {cookTime}</p>
+    <div >
+      {recipes.map(recipe => (
+      <div key={recipe.id} recipe={recipe} style={styles.card}>
+        <img src={recipe.image} style={styles.image} />
+        <h3 style={styles.title}>{recipe.name}</h3>
+        <p>Category: {recipe.category}</p>
+        <p>Servings: {recipe.servings}</p>
+        <p>Prep Time: {recipe.preparationTime}</p>
+        <p>Cooking Time: {recipe.cookingTime}</p>
+        <Link to="/login"><button>See Ingredients</button></Link>
+      </div>
+      
+    ))}
     </div>
   );
 };
@@ -40,7 +55,7 @@ const styles = {
   image: {
     width: '100%',
     height: '50%',
-    objectFit: 'cover',
+    objectFit: 'cover', 
   },
   link: {
     textDecoration: 'none',
