@@ -75,22 +75,6 @@
       "preparationTime": "5",
       "cookingTime": "4",
       "servings": "1"
-    },
-    {
-      "id": "12c4",
-      "name": "Macarone",
-      "image": "https://urbainecity.com/wp-content/uploads/2020/04/macaroni-chinois-top-735x980.jpg",
-      "ingredients": [
-        "dgfbn",
-        "tjte",
-        "rtt",
-        "rykyu"
-      ],
-      "instructions": "wtqwerh. Jggqu kjhge igre hgihhbwrb hwhrt. qregh.",
-      "category": "breakfast",
-      "preparationTime": "50",
-      "cookingTime": "24",
-      "servings": "2"
     }
   ]
 }
